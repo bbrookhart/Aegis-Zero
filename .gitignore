@@ -1,0 +1,105 @@
+# Environment files (NEVER commit secrets)
+.env
+*.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+*.cover
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Secrets and keys (CRITICAL — never commit these)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+id_rsa
+id_ed25519
+*.gpg
+
+# WireGuard configs with keys
+wg*.conf
+!wg0.conf.template
+
+# OPNsense config (contains hashed passwords)
+config.xml
+!config-example.xml
+
+# MISP/OpenCTI auth tokens
+auth_key.txt
+*.token
+
+# ML model artifacts (large binary files)
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+models/trained/
+mlruns/
+
+# Wazuh data directories
+wazuh-data/
+wazuh-logs/
+wazuh-indexer-data/
+
+# Docker volumes
+volumes/
+
+# Zeek logs (high volume, not for git)
+logs/
+*.log
+
+# osquery results
+osquery-results/
+
+# SQLite databases (may contain sensitive audit data)
+*.sqlite
+*.db
+!*.example.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Generated Wazuh rules from ATLAS converter
+# (commit the generator, not the output — output is generated at deploy time)
+phase-03-threat-intel/atlas-to-wazuh/output/
+!phase-03-threat-intel/atlas-to-wazuh/output/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Terraform state (may contain sensitive infrastructure data)
+*.tfstate
+*.tfstate.backup
+.terraform/
